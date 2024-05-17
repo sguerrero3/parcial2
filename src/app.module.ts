@@ -7,6 +7,7 @@ import { SocioModule } from './socio/socio.module';
 import { ClubModule } from './club/club.module';
 import { ClubEntity } from './club/club.entity';
 import { SocioEntity } from './socio/socio.entity';
+import { ClubSocioModule } from './club-socio/club-socio.module';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -20,7 +21,7 @@ import { SocioEntity } from './socio/socio.entity';
     dropSchema: true,
     synchronize: true,
     keepConnectionAlive: true
-  }), SocioModule, ClubModule],
+  }), SocioModule, ClubModule, ClubSocioModule],
   controllers: [AppController],
   providers: [AppService],
 })

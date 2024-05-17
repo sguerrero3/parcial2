@@ -13,7 +13,7 @@ export class ClubEntity {
     nombre: string
 
     @Column()
-    fechaFundacion: string
+    fechaFundacion: Date
 
     @Column()
     imagen: string

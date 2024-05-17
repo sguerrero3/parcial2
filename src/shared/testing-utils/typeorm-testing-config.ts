@@ -1,7 +1,8 @@
 /* eslint-disable prettier/prettier */
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ComentarioEntity } from '../../comentario/comentario.entity';
-/*Añadir entitys*/
+import { ClubEntity } from '../../club/club.entity';
+import { SocioEntity } from '../../socio/socio.entity';
+
 
 
 export const TypeOrmTestingConfig = () => [
@@ -9,9 +10,9 @@ export const TypeOrmTestingConfig = () => [
    type: 'sqlite',
    database: ':memory:',
    dropSchema: true,
-   entities: [ComentarioEntity],
+   entities: [SocioEntity, ClubEntity],
    synchronize: true,
    keepConnectionAlive: true
  }),
- TypeOrmModule.forFeature([ComentarioEntity]),
+ TypeOrmModule.forFeature([SocioEntity, ClubEntity]),
 ];

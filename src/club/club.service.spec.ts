@@ -33,7 +33,7 @@ const seedDatabase = async () => {
           nombre: faker.company.name(),
           fechaFundacion: faker.date.past({years: 1}),
           imagen: faker.internet.url(),
-          descripcion: faker.lorem.sentence({min:10, max:70})
+          descripcion: faker.lorem.sentence({ min: 1, max: 2 })
         })
         
         clubList.push(club);
@@ -53,7 +53,7 @@ const seedDatabase = async () => {
     nombre: faker.company.name(),
     fechaFundacion: faker.date.past({years: 1}),
     imagen: faker.internet.url(),
-    descripcion: faker.lorem.sentence({min:10, max:70}),
+    descripcion: faker.lorem.sentence({ min: 1, max: 2 }),
     socios: []
   }
 
@@ -155,7 +155,7 @@ const seedDatabase = async () => {
  //Prueba create invalid descripcion
  it('Create should throw an exception for invalid descripcion', async () =>{
 
-  const aereolinea: ClubEntity = {
+  const club: ClubEntity = {
     id: '',
     nombre: faker.company.name(),
     fechaFundacion: faker.date.past({years: 1}),
@@ -164,7 +164,7 @@ const seedDatabase = async () => {
     socios: []
   }
 
-  await expect(() => service.create(aereolinea)).rejects.toHaveProperty("message", "The descripcion is not accepted")
+  await expect(() => service.create(club)).rejects.toHaveProperty("message", "The descripcion is not accepted")
 
  })
 
@@ -173,7 +173,7 @@ const seedDatabase = async () => {
  it('Update should throw an exception for invalid descripcion', async () => {
   const club: ClubEntity = clubList[0];
   club.nombre = "Nuevo nombre"
-  club.fechaFundacion = new Date('2030-05-14');
+  club.fechaFundacion = new Date('2005-05-14');
   club.imagen = "www.google.com"
   club.descripcion = faker.lorem.sentence({min:200, max:250})
   
